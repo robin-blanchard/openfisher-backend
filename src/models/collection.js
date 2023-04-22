@@ -22,3 +22,5 @@ Collection.init(
     modelName: "Collection", // We need to choose the model name
   }
 );
+
+module.exports = Collection;
