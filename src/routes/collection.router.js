@@ -8,4 +8,8 @@ router.get("/", collectionController.get);
 /* POST programming language */
 router.post("/", collectionController.create);
 
+router.put("/:id", collectionController.update);
+
+router.delete("/:id", collectionController.remove);
+
 module.exports = router;
