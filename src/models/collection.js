@@ -11,9 +11,14 @@ Collection.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    symbol: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     chain: {
       type: DataTypes.STRING,
-      isIn: [["eth", "matic"]],
+      isIn: [["eth", "matic", "sol"]],
+      allowNull: false,
     },
   },
   {
