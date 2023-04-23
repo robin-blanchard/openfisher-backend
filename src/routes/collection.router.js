@@ -14,4 +14,6 @@ router.delete("/:id", collectionController.remove);
 
 router.get("/:id/lastListings", collectionController.getLastListings);
 
+router.get("/:id/traits", collectionController.getTraits);
+
 module.exports = router;

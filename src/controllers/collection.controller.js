@@ -63,10 +63,25 @@ async function getLastListings(req, res, next) {
   }
 }
 
+async function getTraits(req, res, next) {
+  try {
+    id = req.params.id;
+    collection = await Collection.findByPk(id);
+    if (collection == null) {
+      throw new Error(`Collection #${id} doesn't exist`);
+    }
+    res.json(await magicEdenService.getCollectionTraits(collection));
+  } catch (err) {
+    console.error(`Error while getting collection traits`, err.message);
+    next(err);
+  }
+}
+
 module.exports = {
   get,
   create,
   update,
   remove,
   getLastListings,
+  getTraits,
 };
