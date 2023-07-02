@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 
 const sequelize = require("./src/services/db.service");
 const collectionRouter = require("./src/routes/collection.router");
+const updateFindersFromDB = require("./src/services/listingFinder.service");
 
 dotenv.config();
 
@@ -27,3 +28,8 @@ app.listen(3000, () => {
   console.log(process.env.OPENSEA_API_KEY);
   sequelize.sync({ alter: true }).then(() => console.log("DB SYNCED"));
 });
+
+setInterval(() => {
+  console.log("Launch finders update");
+  updateFindersFromDB();
+}, 10000);
